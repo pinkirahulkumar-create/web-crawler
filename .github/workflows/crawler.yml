@@ -1,0 +1,36 @@
+name: 24/7 Autonomous Web Crawler
+
+on:
+  schedule:
+    # Run every 15 minutes 24/7 (Unlimited free compute on public repo)
+    - cron: '*/15 * * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI anytime
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Crawler
+        env:
+          TIDB_HOST: gateway01.ap-southeast-1.prod.aws.tidbcloud.com
+          TIDB_PORT: 4000
+          TIDB_USER: 2yosQ4Mw9AHbs15.root
+          TIDB_DATABASE: agnisearch
+          TIDB_PASSWORD: ${{ secrets.TIDB_PASSWORD }}
+        run: |
+          python crawler.py
