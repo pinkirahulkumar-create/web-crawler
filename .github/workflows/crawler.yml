@@ -1,6 +1,8 @@
 name: 24/7 Autonomous Web Crawler
 
 on:
+  push:
+    branches: [ main ]
   schedule:
     # Run every 15 minutes 24/7 (Unlimited free compute on public repo)
     - cron: '*/15 * * * *'
