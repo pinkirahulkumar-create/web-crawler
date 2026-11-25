@@ -109,7 +109,12 @@ GLOBAL_TECH_STREAMS = [
     ("https://rss.sciencedaily.com/top.xml", "Science & Research"),
     ("https://feeds.arstechnica.com/arstechnica/index", "Deep Tech & Computing"),
     ("https://www.livemint.com/rss/news", "Global Markets & Economy"),
-    ("https://news.ycombinator.com/rss", "Software & Engineering")
+    ("https://news.ycombinator.com/rss", "Software & Engineering"),
+    ("https://feeds.feedburner.com/TheHackersNews", "Cyber Defense & Vulnerabilities"),
+    ("https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml", "Cybersecurity CVE Alert"),
+    ("https://pypi.org/rss/updates.xml", "Python Developer Packages"),
+    ("https://export.arxiv.org/rss/cs.AI", "AI & Computer Science Research"),
+    ("https://export.arxiv.org/rss/cs.CR", "Cryptography & Security Research")
 ]
 
 VALID_TLDS = (
